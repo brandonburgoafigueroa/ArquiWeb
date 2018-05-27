@@ -1,0 +1,26 @@
+﻿@model string
+
+@{ 
+    var input = "#" + Model;
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<script>
+    var button = $("button");
+    var input = $("@input");
+    var clean = function () {
+        var values = input.val();
+        values = values.substring(0, values.length - 1);
+        input.val(values);
+    };
+
+    var cleanAll = function () {
+        input.val("");
+    };
+    button.click(function () {
+        var num = this.value;
+        var values = input.val();
+        input.val(values+num);
+    });
+</script>

@@ -1,0 +1,36 @@
+﻿@page
+@model Web_App_Arqui.Pages.RecordingModel
+@{
+    ViewData["Title"] = "Recording";
+}
+<h3>@Model.Error</h3>
+<div class="row">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#Message">Mensaje</a></li>
+        <li><a data-toggle="tab" href="#Login">Iniciar sesion</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="Message" class="tab-pane fade in active">
+            <div class="col-lg-5">
+                <h2>@Model.Greeting</h2>
+                <form asp-page-handler="SendMessage" method="post" autocomplete="off">
+                    <textarea asp-for="Message" class="form-control"></textarea>
+
+                    <input type="submit" class="btn btn-success" value="Enviar" />
+                </form>
+            </div>
+        </div>
+        <div id="Login" class="tab-pane fade">
+            <h3>Ingrese su código de acceso</h3>
+
+            <div class="col-lg-5">
+                <form asp-page-handler="Login" method="post" autocomplete="off">
+                    <textarea readonly asp-for="Passcode" style="font-weight: bold; font-size:24px" type="text" class="form-control"></textarea>
+                    @Html.Partial("Phone")
+                    <input type="submit" class="btn btn-success" value="Ingresar" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("ScriptsPhone", "Passcode")

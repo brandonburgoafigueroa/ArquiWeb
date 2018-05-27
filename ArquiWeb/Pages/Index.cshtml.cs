@@ -9,9 +9,9 @@ namespace ArquiWeb.Pages
 {
     public class IndexModel : PageModel
     {
-        public void OnGet()
+        public IActionResult OnGet()
         {
-
+            return RedirectToPage("/Connect");
         }
     }
 }

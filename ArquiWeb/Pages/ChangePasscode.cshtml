@@ -1,0 +1,18 @@
+﻿@page
+@model Web_App_Arqui.Pages.ChangePasscodeModel
+@{
+    ViewData["Title"] = "ChangePasscode";
+}
+
+<h2>Cambiar codigo de acceso</h2>
+<h3>Ingrese su nuevo codigo de acceso y presione guardar</h3>
+<div class="row">
+    <div class="col-lg-5">
+        <form method="post" autocomplete="off">
+            <input asp-for="Passcode" class="form-control" />
+            <br />
+            <input type="submit" value="Guardar" class="btn btn-success" />
+        </form>
+    </div>
+</div>
+

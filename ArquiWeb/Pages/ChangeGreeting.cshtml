@@ -1,0 +1,18 @@
+﻿@page
+@model Web_App_Arqui.Pages.ChangeGreetingModel
+@{
+    ViewData["Title"] = "ChangeGreeting";
+}
+
+<h2>Cambiar saludo</h2>
+<h3>Ingrese su nuevo saludo y presione guardar</h3>
+<div class="row">
+    <div class="col-lg-5">
+        <form method="post" autocomplete="off">
+            <input asp-for="Greeting" class="form-control" />
+            <br />
+            <input type="submit" value="Guardar" class="btn btn-success" />
+        </form>
+    </div>
+</div>
+

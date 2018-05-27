@@ -1,0 +1,35 @@
+﻿@page
+@model Web_App_Arqui.Pages.MailboxMenuModel
+@{
+    ViewData["Title"] = "MailboxMenu";
+}
+
+<h2>Menu Buzón</h2>
+<div class="row">
+    <div class="col-lg-5">
+        <div class="row">
+            <form asp-page-handler="Listen" method="post">
+                <input class="btn btn-primary" type="submit" value="Escuchar mensajes" />
+            </form>
+
+        </div>
+        <br />
+        <div class="row">
+            <form asp-page-handler="Passcode" method="post">
+                <input class="btn btn-primary" type="submit" value="Cambiar codigo de acceso" />
+            </form>
+        </div>
+        <br />
+        <div class="row">
+            <form asp-page-handler="Greeting" method="post">
+                <input class="btn btn-primary" type="submit" value="Cambiar saludo" />
+            </form>
+        </div>
+        <div class="row">
+            <br />
+            <form asp-page-handler="Exit" method="post">
+                <input class="btn btn-danger" type="submit" value="Colgar" />
+            </form>
+        </div>
+        </div>
+    </div>

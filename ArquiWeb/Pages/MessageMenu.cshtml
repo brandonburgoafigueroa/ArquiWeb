@@ -1,0 +1,35 @@
+﻿@page
+@model Web_App_Arqui.Pages.MessageMenuModel
+@{
+    ViewData["Title"] = "MessageMenu";
+}
+
+<h2>Menu de mensajes</h2>
+<h2>@Model.Error</h2>
+<div class="row">
+    <div class="col-lg-5">
+        <form asp-page-handler="Listen">
+            <input type="submit" class="btn btn-primary" value="Escuchar mensaje actual" />
+        </form>
+        <br />
+        <form asp-page-handler="Save">
+            <input type="submit" class="btn btn-primary" value="Guardar mensaje actual" />
+        </form>
+        <br />
+        <form asp-page-handler="Delete">
+            <input type="submit" class="btn btn-primary" value="Eliminar mensaje actual" />
+        </form>
+        <br />
+        <form asp-page-handler="MailBoxMenu">
+            <input type="submit" class="btn btn-primary" value="Ir a Menu Buzon" />
+        </form>
+    </div>
+    <div class="col-lg-5">
+        <h3>@Model.Message</h3>
+            
+        
+        <br />
+
+        <h4>@Model.CurrentMessageText</h4>
+    </div>
+</div>

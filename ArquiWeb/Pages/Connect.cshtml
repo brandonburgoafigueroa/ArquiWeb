@@ -1,0 +1,23 @@
+﻿@page
+@model Web_App_Arqui.Pages.InitialPromtModel
+@{
+    ViewData["Title"] = "InitialPromt";
+}
+
+<h3>@Model.Message</h3>
+<div class="row">
+    <div class="col-lg-5">
+        <form method="post" autocomplete="off">
+
+            <textarea readonly asp-for="IDMailbox" style="font-weight: bold; font-size:24px" type="text" class="form-control"></textarea>
+            @Html.Partial("Phone")
+            <input type="submit" class="btn btn-success" style='width:100px; height:100px' value="Llamar" />
+        </form>
+    </div>
+    <div class="col-lg-5">
+
+    </div>
+</div>
+
+
+@Html.Partial("ScriptsPhone", "IDMailbox")
