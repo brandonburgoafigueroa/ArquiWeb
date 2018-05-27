@@ -42,6 +42,15 @@ namespace Web_App_Arqui.Pages
             Error = "Codigo de acceso incorrecto, vuelva a intentar!";
             return Page();
         }
+        public async Task<IActionResult> OnPostExit()
+        {
+            //estado
+            bool result = await ApiConsumer.Consumer.ExecuteCommandAsync("H");
+            if (result)
+                return RedirectToPage("/Connect");
+            Error = "Codigo de acceso incorrecto, vuelva a intentar!";
+            return Page();
+        }
     }
  
 }

@@ -11,6 +11,11 @@ namespace ArquiWeb.Pages
     {
         public IActionResult OnGet()
         {
+            var verify = ApiConsumer.PathApi.Instance;
+            if (verify.UrlApi ==null)
+            {
+                return RedirectToPage("/Config");
+            }
             return RedirectToPage("/Connect");
         }
     }

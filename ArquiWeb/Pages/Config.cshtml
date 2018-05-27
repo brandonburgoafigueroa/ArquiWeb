@@ -1,0 +1,19 @@
+﻿@page
+@model ArquiWeb.Pages.ConfigModel
+@{
+    ViewData["Title"] = "Config";
+}
+
+<h2>Configuracion</h2>
+<h3>Ingrese la URL de la api</h3>
+
+<div class="row">
+    <div class="col-lg-5">
+            <h3>@Model.Error</h3>
+        <form method="post">
+            <input class="form-control" type="text" asp-for="Url" />
+            <br />
+            <input type="submit" class="btn btn-success" value="Guardar" />
+        </form>
+    </div>
+</div>

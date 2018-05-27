@@ -18,6 +18,9 @@
 
                     <input type="submit" class="btn btn-success" value="Enviar" />
                 </form>
+                <form asp-page-handler="Exit" method="post">
+                    <input type="submit" class="btn btn-danger" value="Colgar" />
+                </form>
             </div>
         </div>
         <div id="Login" class="tab-pane fade">
@@ -28,6 +31,9 @@
                     <textarea readonly asp-for="Passcode" style="font-weight: bold; font-size:24px" type="text" class="form-control"></textarea>
                     @Html.Partial("Phone")
                     <input type="submit" class="btn btn-success" value="Ingresar" />
+                </form>
+                <form asp-page-handler="Exit" method="post">
+                    <input type="submit" class="btn btn-danger" value="Colgar" />
                 </form>
             </div>
         </div>
