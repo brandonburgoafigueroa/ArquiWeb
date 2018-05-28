@@ -15,7 +15,7 @@ namespace Web_App_Arqui.ApiConsumer
         {
             //enviar # mas
             bool result = false;
-            HttpResponseMessage response = await client.GetAsync(url+"/ExecuteCommand/" + command);
+            HttpResponseMessage response = await client.GetAsync(url+"/executeCommand/" + command);
             if (response.IsSuccessStatusCode)
             {
                 var data=await response.Content.ReadAsStringAsync();
@@ -23,10 +23,22 @@ namespace Web_App_Arqui.ApiConsumer
             }
             return result;
         }
+        public static async Task<bool> ExecuteOptionAsync(string command)
+        {
+            //enviar # mas
+            bool result = false;
+            HttpResponseMessage response = await client.GetAsync(url + "/executeOption/" + command);
+            if (response.IsSuccessStatusCode)
+            {
+                var data = await response.Content.ReadAsStringAsync();
+                result = Convert.ToBoolean(data);
+            }
+            return result;
+        }
         public static async Task<string> GetCurrentMessage()
         {
             string result = "Error";
-            HttpResponseMessage response = await client.GetAsync(url + "/GetCurrentMessage/");
+            HttpResponseMessage response = await client.GetAsync(url + "/currentMessage");
             if (response.IsSuccessStatusCode)
             {
                 result = await response.Content.ReadAsStringAsync();
@@ -38,7 +50,7 @@ namespace Web_App_Arqui.ApiConsumer
         {
             ///enviar con h
             bool result = false;
-            HttpResponseMessage response = await client.GetAsync(url + "/ExecuteCommand/" + message);
+            HttpResponseMessage response = await client.GetAsync(url + "/saveMessage/" + message);
             if (response.IsSuccessStatusCode)
             {
                 var data = await response.Content.ReadAsStringAsync();
@@ -47,10 +59,10 @@ namespace Web_App_Arqui.ApiConsumer
             return result;
         }
 
-        public static async Task<string> GetGrreeting()
+        public static async Task<string> GetGreeting()
         {
             string result = "Error";
-            HttpResponseMessage response = await client.GetAsync(url + "/GetGreeting/");
+            HttpResponseMessage response = await client.GetAsync(url + "/currentGreeting");
             if (response.IsSuccessStatusCode)
             {
                 result = await response.Content.ReadAsStringAsync();
@@ -63,7 +75,7 @@ namespace Web_App_Arqui.ApiConsumer
             url = ArquiWeb.ApiConsumer.PathApi.Instance.UrlApi;
             try
             {
-                HttpResponseMessage response = await client.GetAsync(url + "/Values/Ping");
+                HttpResponseMessage response = await client.GetAsync(url + "/ping");
                 if (response.IsSuccessStatusCode)
                 {
                     var data = await response.Content.ReadAsStringAsync();

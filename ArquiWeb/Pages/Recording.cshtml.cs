@@ -21,7 +21,7 @@ namespace Web_App_Arqui.Pages
         public string Greeting { set; get; }
         public async Task OnGetAsync()
         {
-            Greeting = await ApiConsumer.Consumer.GetGrreeting();
+            Greeting = await ApiConsumer.Consumer.GetGreeting();
         }
         public async Task<IActionResult> OnPostSendMessageAsync()
         {
@@ -45,7 +45,7 @@ namespace Web_App_Arqui.Pages
         public async Task<IActionResult> OnPostExit()
         {
             //estado
-            bool result = await ApiConsumer.Consumer.ExecuteCommandAsync("H");
+            bool result = await ApiConsumer.Consumer.ExecuteOptionAsync("H");
             if (result)
                 return RedirectToPage("/Connect");
             Error = "Codigo de acceso incorrecto, vuelva a intentar!";

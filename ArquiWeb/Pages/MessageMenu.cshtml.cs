@@ -20,6 +20,7 @@ namespace Web_App_Arqui.Pages
         }
         public async Task<IActionResult> OnPostListenAsync()
         {
+            bool executed = await ApiConsumer.Consumer.ExecuteOptionAsync("1");
             string result = await ApiConsumer.Consumer.GetCurrentMessage();
                 CurrentMessageText = result;
                 Message = "Mensaje actual";
@@ -28,7 +29,7 @@ namespace Web_App_Arqui.Pages
         }
         public async Task<IActionResult> OnPostSaveAsync()
         {
-            bool result = await ApiConsumer.Consumer.ExecuteCommandAsync("2");
+            bool result = await ApiConsumer.Consumer.ExecuteOptionAsync("2");
             if (result) { 
                 Error = "";
             return Page();
@@ -39,7 +40,7 @@ namespace Web_App_Arqui.Pages
         }
         public async Task<IActionResult> OnPostDeleteAsync()
         {
-            bool result = await ApiConsumer.Consumer.ExecuteCommandAsync("3");
+            bool result = await ApiConsumer.Consumer.ExecuteOptionAsync("3");
             if (result) { 
                 Error = "";
             return Page();
@@ -50,7 +51,7 @@ namespace Web_App_Arqui.Pages
         
         public async Task<IActionResult> OnPostMailBoxMenuAsync()
         {
-            bool result = await ApiConsumer.Consumer.ExecuteCommandAsync("4");
+            bool result = await ApiConsumer.Consumer.ExecuteOptionAsync("4");
             if (result)
             {
                 Error = "";
