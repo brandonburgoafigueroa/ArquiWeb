@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ArquiWeb.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -9,6 +10,13 @@ namespace ArquiWeb.Pages
 {
     public class ConfigModel : PageModel
     {
+        private readonly IConsumer consumer;
+
+        public ConfigModel(IConsumer consumer)
+        {
+            this.consumer = consumer;
+        }
+
         [BindProperty]
         public string Url { set; get; }
         public string Error { set; get; }
@@ -18,8 +26,8 @@ namespace ArquiWeb.Pages
         }
         public async Task<IActionResult> OnPostAsync()
         {
-            ArquiWeb.ApiConsumer.PathApi.Instance.UrlApi = Url;
-            bool result = await Web_App_Arqui.ApiConsumer.Consumer.Ping();
+            consumer.SetUrl(Url);
+            bool result = await consumer.Ping();
             if (result)
             {
                 return RedirectToPage("/Connect");
